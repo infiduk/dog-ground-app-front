@@ -22,7 +22,7 @@ export default class Register extends Component {
     }
 
     updateIndex(selectedIndex) {
-        this.setState({selectedIndex})
+        this.setState({ selectedIndex })
     }
 
     static navigationOptions = {
@@ -156,36 +156,36 @@ export default class Register extends Component {
                             ref={(input) => this.breed = input}
                             placeholder='견종' />
 
-                            <ButtonGroup
-                                onPress={this.updateIndex}
-                                selectedIndex={selectedIndex}
-                                buttons={buttons}
-                                containerStyle={{width: '60%', height: 50}}
-                            />
+                        <ButtonGroup
+                            onPress={this.updateIndex}
+                            selectedIndex={selectedIndex}
+                            buttons={buttons}
+                            containerStyle={{ width: '60%', height: 50 }}
+                        />
                     </View>
                 </ScrollView>
             </KeyboardAvoidingView>
 
-                );
-            }
-        }
+        );
+    }
+}
 
 const styles = StyleSheet.create({
-                    container: {
-                    backgroundColor: '#fff',
-            flexGrow: 1,
-            flexDirection: 'column',
-        },
+    container: {
+        backgroundColor: '#fff',
+        flexGrow: 1,
+        flexDirection: 'column',
+    },
     text: {
-                    flex: 0.2,
-            backgroundColor: '#fff',
-            alignItems: 'center',
-            justifyContent: 'center',
-        },
+        flex: 0.2,
+        backgroundColor: '#fff',
+        alignItems: 'center',
+        justifyContent: 'center',
+    },
     form: {
-                    flex: 1,
-            backgroundColor: '#fff',
-            alignItems: 'center',
-            justifyContent: 'center',
-        }
+        flex: 1,
+        backgroundColor: '#fff',
+        alignItems: 'center',
+        justifyContent: 'center',
+    }
 });;

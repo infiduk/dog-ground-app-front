@@ -20,7 +20,7 @@ export default class Main extends Component {
             textAlign: 'center',
             flexGrow: 1,
         },
-        headerLeft: (<Icon name={Platform.OS === 'ios' ? 'ios-menu' : 'md-menu'} style={{paddingLeft: 10}}/>),
+        headerLeft: (<Icon name={Platform.OS === 'ios' ? 'ios-menu' : 'md-menu'} style={{ paddingLeft: 10 }} />),
         title: '이어줄개',
     }
 
