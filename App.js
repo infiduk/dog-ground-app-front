@@ -7,19 +7,18 @@ import Login from './component/Login';
 import Register from './component/Register';
 
 const AppStackNavigator = createStackNavigator({
-  Main: {
-    screen: Register,
-    // navigationOptions: {
-    //   header: null,
-    // }
-  },
+  Main: { screen: Main, },
+  Login: { screen: Login, },
+  Register: { screen: Register },
+}, { 
+  initialRouteName : 'Login',
 });
 
 const AppStackContainer = createAppContainer(AppStackNavigator);
 
 export default class App extends Component {
   render() {
-    return(
+    return (
       <AppStackContainer />
     );
   }

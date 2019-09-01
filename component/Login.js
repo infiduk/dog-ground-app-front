@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { StyleSheet, Platform, Text, View, Image, AsyncStorage, Keyboard, TouchableOpacity } from 'react-native';
+import { NavigationActions, StackActions } from 'react-navigation';
 import { Input, Button } from 'react-native-elements';
 import { Icon } from 'native-base';
 
@@ -9,57 +10,25 @@ export default class Login extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            id: '',
+            email: '',
             password: '',
         }
     }
 
-    saveData =async()=>{
-        const {id,password} = this.state;
- 
-        //save data with asyncstorage
-        let loginDetails={
-            id: id,
+    saveData = async() => {
+        const {email, password} = this.state;
+
+        let Details = {
+            email: email,
             password: password
         }
  
-        if(this.props.type !== 'Login')
-        {
-            AsyncStorage.setItem('loginDetails', JSON.stringify(loginDetails));
- 
-            Keyboard.dismiss();
-            alert("You successfully registered. id: " + id + ' password: ' + password);
-            this.login();
-        }
-        else if(this.props.type == 'Login')
-        {
-            try{
-                let loginDetails = await AsyncStorage.getItem('loginDetails');
-                let ld = JSON.parse(loginDetails);
- 
-                if (ld.email != null && ld.password != null)
-                {
-                    if (ld.email == email && ld.password == password)
-                    {
-                        alert('Go in!');
-                    }
-                    else
-                    {
-                        alert('Email and Password does not exist!');
-                    }
-                }
- 
-            }catch(error)
-            {
-                alert(error);
-            }
-        }
-    }
- 
-    showData = async()=>{
-        let loginDetails = await AsyncStorage.getItem('loginDetails');
-        let ld = JSON.parse(loginDetails);
-        alert('email: '+ ld.email + ' ' + 'password: ' + ld.password);
+        AsyncStorage.setItem('Details', JSON.stringify(Details));
+        Keyboard.dismiss();
+        alert('1: ' + email + '2: ' + password);
+
+        // reset 으로 바꾸기
+        this.props.navigation.navigate('Main');
     }
 
     static navigationOptions = {
@@ -80,6 +49,8 @@ export default class Login extends Component {
     }
 
     render() {
+        const { navigation } = this.props;
+
         return (
             <View style={styles.container}>
                 <View style={styles.image}>
@@ -100,9 +71,10 @@ export default class Login extends Component {
                         borderBottomWidth: 0.5,
                         borderColor: '#3c7bfe',
                     }}
-                    onChangeText={(id) => this.setState({id})}
+                    onChangeText={(email) => this.setState({email})}
                     onSubmitEditing= {() => this.password.focus()}
                     placeholder= '아이디' />
+
                     <Input containerStyle={{
                         width: 300,
                         alignItems: 'center', 
@@ -125,11 +97,12 @@ export default class Login extends Component {
                     }}
                     onPress={this.saveData}
                     title='로그인' type='solid' size={10} />
+
                     <Button containerStyle={{
                         margin: 10,
                         alignItems: 'center',
                     }}
-                    onPress={this.saveData}
+                    onPress={() => {navigation.navigate('Register')}}
                     title='회원가입' type='solid' size={10} />
                 </TouchableOpacity>
             </View>
