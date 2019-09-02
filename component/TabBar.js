@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-import { createBottomTabNavigator, createAppContainer } from 'react-navigation';
+import { createBottomTabNavigator, createAppContainer, createMaterialTopTabNavigator } from 'react-navigation';
+import { Platform } from 'react-native';
 
 import HomeTab from './AppTabNavigator/HomeTab';
 import MarryTab from './AppTabNavigator/MarryTab';

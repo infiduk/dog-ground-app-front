@@ -22,6 +22,8 @@ export default class Main extends Component {
         },
         headerLeft: (<Icon name={Platform.OS === 'ios' ? 'ios-menu' : 'md-menu'} style={{ paddingLeft: 10 }} />),
         title: '이어줄개',
+        // 이런 편법 안쓰고 그냥 깔끔하게 가운데 정렬하는 방법점..
+        headerRight: (<Text style={{ color: '#fff' }}> </Text>),
     }
 
     render() {
