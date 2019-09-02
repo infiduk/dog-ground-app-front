@@ -26,7 +26,7 @@ export default class BoardTabDetail extends Component {
             textAlign: 'center',
             flexGrow: 1,
         },
-        title: `${this.props.navigation.state.params.title}`,
+        title: `${navigation.getParam('title', '-')}`,
     });
 
     render() {

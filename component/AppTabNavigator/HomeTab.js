@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { View, Text, StyleSheet, Platform, Image, Dimensions } from 'react-native';
 import { Icon } from 'native-base';
-import Carousel from 'react-native-banner-carousel';
+import Carousel, { Pagination } from 'react-native-snap-carousel';
 
 import Banner_1 from '../../assets/banner1.jpg';
 import Banner_2 from '../../assets/banner2.jpg';
@@ -31,7 +31,6 @@ export default class HomeTab extends Component {
         return (
             <View style={styles.container}>
                 <View style={styles.banner}>
-                    {/* 에러남 흑 흑 배너배너
                     <Carousel
                         autoplay
                         autoplayTimeout={5000}
@@ -40,7 +39,7 @@ export default class HomeTab extends Component {
                         pageSize={BannerWidth}
                     >
                         {images.map((image, index) => this.renderPage(image, index))}
-                    </Carousel> */}
+                    </Carousel>
                 </View>
                 <View style={styles.notice}>
                     <Text style={{padding: 2, backgroundColor: '#e1e1e1', }}>공지사항말머리 결혼까지 단 10일!</Text>

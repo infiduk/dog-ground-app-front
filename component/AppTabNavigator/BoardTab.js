@@ -41,7 +41,8 @@ export default class BoardTab extends Component {
         const {no, name, rdn} = item;
         return (
             <TouchableOpacity
-                onPress={() => {navigation.navigate('BoardDetail', {title: name})}}
+                onPress={() => {this.props.navigation.navigate('BoardDetail', {title: name})}}
+                style={{ width: '100%', alignItems: 'stretch' }}
             >
             <BoardItem
                 no={no}
