@@ -9,7 +9,7 @@ export default class BoardTab extends Component {
         super(props);
 
         this.state = {
-            BoardItems: [
+            boardItems: [
                 { no: '001', name: 'Munchkin', rdn: '19' },
                 { no: '002', name: 'Jjangchkin', rdn: '43' },
                 { no: '003', name: 'Munchking', rdn: '56' },
@@ -41,8 +41,7 @@ export default class BoardTab extends Component {
         const {no, name, rdn} = item;
         return (
             <TouchableOpacity
-                onPress={() => this.props.navigation &&
-                    this.props.navigation.push('BoardDetail', {title: name})}
+                onPress={() => {navigation.navigate('BoardDetail', {title: name})}}
             >
             <BoardItem
                 no={no}
@@ -55,29 +54,14 @@ export default class BoardTab extends Component {
 
     componentDidMount() {
         this._getBoardDatas(10);
-        // setInterval(() => {
-        //     this._getCoinDatas(1000);
-        //     console.log('toggled!');
-        // }, 10000000);
     }
 
-    FlatListItemSeparator = () => {
-        return (
-            <View style={{ height: 1, width: '100%', backgroundColor: '#efefef' }} />
-        );
-    };
-
-    GetItem = (n) => {
-        Alert.alert(n);
-    };
-
-    _keyExtractor = (item) => item.no;
-
     render() {
+        const { navigate } = this.props.navigation;
         return (
             <View style={styles.container}>
                 <FlatList
-                    style={{backgroundColor: '#fef0ef'}}
+                    style={{backgroundColor: '#fff'}}
                     contentContainerStyle={this.props.contentContainer}
                     data={this.state.boardItems}
                     keyExtractor={(item) => item.name}
@@ -103,6 +87,6 @@ const styles = StyleSheet.create({
         height: 45,
     },
     contentContainer: {
-        backgroundColor: '#fef0ef'
+        backgroundColor: '#fff'
     },
 });

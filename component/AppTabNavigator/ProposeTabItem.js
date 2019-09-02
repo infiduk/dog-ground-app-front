@@ -1,10 +1,10 @@
 import React from 'react';
 import { StyleSheet, Text, View, Image } from 'react-native';
 
-export default class BoardTabItems extends React.Component {
+export default class ProposeTabItem extends React.Component {
     render() {
         return (
-            <View style={{backgroundColor: '#fff', flex: 1}}>
+            <View style={{backgroundColor: '#fff'}}>
                 <View style={styles?.container}>
                     <Image
                         style={{width: 50, height: 50, marginRight: 10}}
@@ -15,8 +15,11 @@ export default class BoardTabItems extends React.Component {
                         <Text style={[styles?.text, {flex: 0.5}]}>{'Volume: ' + (this.props.volume || 0)}</Text>
                         <Text style={[styles?.text, {flex: 0.5}]}>{'Price: ' + (this.props.price || 0)}</Text>
                     </View>
+                    <View style={styles?.inContainer}>
+                    <Text style={[styles?.textRank, {flex: 1, marginTop: 30}]}>{'#' + (this.props.rank || 'Rank')}</Text>
+                    </View>
                 </View>
-                <View style={{flex: 1, height: 1, marginTop: 15, marginLeft: 5, marginRight: 5, backgroundColor: '#e1e1e1'}}>
+                <View style={{height: 1, marginTop: 15, marginLeft: 5, marginRight: 5, backgroundColor: '#e1e1e1'}}>
                 </View>
             </View>
         );
