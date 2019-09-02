@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import { StyleSheet, Platform, Text, View } from 'react-native';
 import { Icon } from 'native-base';
 
+import Home from './AppTabNavigator/HomeTab';
+
 import TabBar from './TabBar';
 
 export default class Main extends Component {

@@ -17,6 +17,10 @@ export default class Login extends Component {
 
     saveData = async() => {
         const {email, password} = this.state;
+        const resetAction = StackActions.reset({
+            index: 0,
+            actions: [NavigationActions.navigate({ routeName: 'Main' })],
+          });
 
         let Details = {
             email: email,
@@ -27,8 +31,7 @@ export default class Login extends Component {
         Keyboard.dismiss();
         alert('1: ' + email + '2: ' + password);
 
-        // reset 으로 바꾸기
-        this.props.navigation.navigate('Main');
+        this.props.navigation.dispath(resetAction);
     }
 
     static navigationOptions = {

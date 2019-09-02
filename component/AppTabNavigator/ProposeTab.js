@@ -40,7 +40,7 @@ export default class ProposeTab extends Component {
         const {no, name, rdn} = item;
         return (
             <TouchableOpacity
-                onPress={() => {navigation.navigate('BoardDetail', {title: name})}}
+                onPress={() => {this.props.navigation.navigate('BoardDetail', {title: name})}}
             >
             <ProposeItem
                 no={no}

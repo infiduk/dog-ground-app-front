@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { StyleSheet, Text, View } from 'react-native';
-import { createStackNavigator, createAppContainer } from 'react-navigation';
+import { createStackNavigator, createAppContainer, createBottomTabNavigator } from 'react-navigation';
 
 import Main from './component/Main';
 import Login from './component/Login';
@@ -16,26 +16,29 @@ const AppStackNavigator = createStackNavigator({
   Main: { screen: Main, },
   Login: { screen: Login, },
   Register: { screen: Register, },
+  Marry: { screen: Marry, },
   Board: { screen: Board, },
   BoardDetail: { screen: BoardDetail, },
+  Propose: { screen: Propose, },
 }, { 
-  initialRouteName : 'Main',
+  initialRouteName : 'Login',
 });
 
 const AppTabNavigator = createBottomTabNavigator({
-  HomeTab: { screen: HomeTab },
-  MarryTab: { screen: MarryTab },
-  BoardTab: { screen: BoardTab },
-  ProposeTab: { screen: ProposeTab },
+  MainTab: { screen: Main },
+  MarryTab: { screen: Marry },
+  BoardTab: { screen: Board },
+  ProposeTab: { screen: Propose },
   AppStackNavigator: AppStackNavigator,
 });
 
-const AppTabContainer = createAppContainer(AppTabNavigator);
+const AppStackContainer = createAppContainer(AppStackNavigator);
+// const AppTabContainer = createAppContainer(AppTabNavigator);
 
 export default class App extends Component {
   render() {
     return (
-      <AppTabContainer />
+      <AppStackContainer />
     );
   }
 }

@@ -8,11 +8,6 @@ import BoardTab from './AppTabNavigator/BoardTab';
 import ProposeTab from './AppTabNavigator/ProposeTab';
 import BoardDetail from './AppTabNavigator/BoardTabDetail';
 
-const AppNavigator = createStackNavigator({
-    Board: { screen: BoardTab, },
-    BoardDetail: { screen: BoardDetail, },
-});
-
 const AppTabNavigator = createBottomTabNavigator({
     HomeTab: { screen: HomeTab },
     MarryTab: { screen: MarryTab },
