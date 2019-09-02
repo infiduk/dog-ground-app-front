@@ -45,14 +45,17 @@ export default class HomeTab extends Component {
                     <Text style={{padding: 2, backgroundColor: '#e1e1e1', }}>공지사항말머리 결혼까지 단 10일!</Text>
                 </View>
                 <View style={styles.marry}>
-                    <Text>ㅇ</Text>
+                    <View style={{borderWidth: 2, borderColor: '#e1e1e1', flex: 1, marginTop: 35, marginLeft: 10, marginRight: 10, marginBottom: 10,}}></View>
+                    <View style={{borderWidth: 2, borderColor: '#e1e1e1', backgroundColor: '#fff', height: 80, width: 80, borderRadius: 100 / 2, marginTop: 10, alignItems: 'center', alignSelf: 'center', position: 'absolute'}}></View>
                 </View>           
                 <View style={{flex: 1, flexDirection: 'row',}}>
                     <View style={styles.board}>
-                        <Text>ㅁ</Text>
+                        <View style={{borderWidth: 2, borderColor: '#e1e1e1', flex: 1, marginTop: 35, marginLeft: 10, marginRight: 10, marginBottom: 10,}}></View>
+                        <View style={{borderWidth: 2, borderColor: '#e1e1e1', backgroundColor: '#fff', height: 80, width: 80, borderRadius: 100 / 2, marginTop: 10, alignItems: 'center', alignSelf: 'center', position: 'absolute'}}></View>
                     </View>
                     <View style={styles.propose}>
-                        <Text>ㄹ</Text>
+                        <View style={{borderWidth: 2, borderColor: '#e1e1e1', flex: 1, marginTop: 35, marginLeft: 10, marginRight: 10, marginBottom: 10,}}></View>
+                        <View style={{borderWidth: 2, borderColor: '#e1e1e1', backgroundColor: '#fff', height: 80, width: 80, borderRadius: 100 / 2, marginTop: 10, alignItems: 'center', alignSelf: 'center', position: 'absolute'}}></View>
                     </View>
                 </View>
             </View>
@@ -80,44 +83,14 @@ const styles = StyleSheet.create({
     },
     marry: {
         flex: 1,
-        backgroundColor: 'blue'
+        backgroundColor: '#fff'
     },
     board: {
         flex: 1,
-        backgroundColor: 'yellow'
+        backgroundColor: '#fff'
     },
     propose: {
         flex: 1,
-        backgroundColor: 'pink'
+        backgroundColor: '#fff'
     }
 });
-
-{/* 동그라미 네모 겹치게 하는거 이거로 수정하기 ..
-<View style={style.container}>
-    <View style={{ flex: 1, flexDirection: 'row', backgroundColor: 'green', justifyContent: 'center', alignItems: 'center' }}>
-        <View style={{ flexDirection: 'column', justifyContent: 'center', alignItems: 'center', alignSelf: 'center' }}>
-            <View style={{ flex: 1, flexDirection: 'row', alignItems: 'flex-end', alignSelf: 'flex-end', margin: 10 }}>
-                <View style={{ backgroundColor: 'white', borderRadius: 10, flexDirection: 'column', height: 100, width: 100 }}></View>
-            </View>
-            <View style={{ flex: 1, flexDirection: 'row', alignItems: 'flex-start', alignSelf: 'flex-end', margin: 10 }}>
-                <View style={{ backgroundColor: 'white', borderRadius: 10, flexDirection: 'column', height: 100, width: 100 }}></View>
-            </View>
-        </View>
-
-        <View style={{ flexDirection: 'column', justifyContent: 'center', alignItems: 'center', alignSelf: 'center' }}>
-            <View style={{ flex: 1, flexDirection: 'row', alignItems: 'flex-end', alignSelf: 'flex-start', margin: 10 }}>
-                <View style={{ backgroundColor: 'white', borderRadius: 10, flexDirection: 'column', height: 100, width: 100 }}></View>
-            </View>
-            <View style={{ flex: 1, flexDirection: 'row', alignItems: 'flex-start', alignSelf: 'flex-start', margin: 10 }}>
-                <View style={{ backgroundColor: 'white', borderRadius: 10, flexDirection: 'column', height: 100, width: 100 }}></View>
-            </View>
-        </View>
-
-        <View style={{ justifyContent: 'center', alignItems: 'center', alignSelf: 'center', position: 'absolute' }}>
-            <View style={{
-                backgroundColor: 'blue',
-                borderRadius: 10, height: 100, width: 100, borderRadius: 100 / 2
-            }}></View>
-        </View>
-    </View>
-</View> */}

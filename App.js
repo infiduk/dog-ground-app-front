@@ -15,22 +15,27 @@ import Profile from './component/AppTabNavigator/ProfileTab';
 const AppStackNavigator = createStackNavigator({
   Main: { screen: Main, },
   Login: { screen: Login, },
-  Register: { screen: Register },
-  Marry : { screen: Marry, },
-  Board : { screen: Board, },
-  BoardDetail : { screen: BoardDetail, },
-  Propose : { screen: Propose, },
-  Profile : { screen: Profile, },
+  Register: { screen: Register, },
+  Board: { screen: Board, },
+  BoardDetail: { screen: BoardDetail, },
 }, { 
   initialRouteName : 'Main',
 });
 
-const AppStackContainer = createAppContainer(AppStackNavigator);
+const AppTabNavigator = createBottomTabNavigator({
+  HomeTab: { screen: HomeTab },
+  MarryTab: { screen: MarryTab },
+  BoardTab: { screen: BoardTab },
+  ProposeTab: { screen: ProposeTab },
+  AppStackNavigator: AppStackNavigator,
+});
+
+const AppTabContainer = createAppContainer(AppTabNavigator);
 
 export default class App extends Component {
   render() {
     return (
-      <AppStackContainer />
+      <AppTabContainer />
     );
   }
 }

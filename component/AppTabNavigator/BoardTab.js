@@ -40,8 +40,8 @@ export default class BoardTab extends Component {
         const {no, name, rdn} = item;
         return (
             <TouchableOpacity
-                onPress={() => {this.props.navigation.navigate('BoardDetail', {title: name})}}
-                style={{ width: '100%', alignItems: 'stretch' }}
+                onPress={() => this.props.navigation.navigate('BoardDetail', {title: name})}
+                style={{ width: '100%', alignItems: 'stretch',}}
             >
             <BoardItem
                 no={no}
@@ -57,7 +57,6 @@ export default class BoardTab extends Component {
     }
 
     render() {
-        const { navigate } = this.props.navigation;
         return (
             <View style={styles.container}>
                 <FlatList
