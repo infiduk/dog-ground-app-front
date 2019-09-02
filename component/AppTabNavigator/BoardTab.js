@@ -24,7 +24,6 @@ export default class BoardTab extends Component {
             <Icon name={Platform.OS === 'ios' ? 'ios-list' : 'md-list'} size={24} />
         ),
         tabBarOptions: { showLabel: false },
-        title: '네비게이션이요네이게이션',
     }
 
     _getBoardDatas = async(limit) => {
@@ -79,8 +78,8 @@ const styles = StyleSheet.create({
     container: {
         backgroundColor: '#fff',
         flex: 1,
-        alignItems: 'center',
-        justifyContent: 'center',
+        // alignItems: 'center',
+        // justifyContent: 'center',
     },
     item: {
         padding: 10,

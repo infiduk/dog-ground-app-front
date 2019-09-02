@@ -13,7 +13,7 @@ const AppTabNavigator = createBottomTabNavigator({
     MarryTab: { screen: MarryTab },
     BoardTab: { screen: BoardTab },
     ProposeTab: { screen: ProposeTab },
-    ProfileTab: { screen: ProfileTab },
+    // ProfileTab: { screen: ProfileTab },
 });
 
 const AppTabContainer = createAppContainer(AppTabNavigator);
