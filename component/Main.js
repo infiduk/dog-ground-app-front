@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { StyleSheet, Platform, Text, View } from 'react-native';
+import { StackActions, NavigationActions } from 'react-navigation';
 import { Icon } from 'native-base';
 
 import Home from './AppTabNavigator/HomeTab';
@@ -7,6 +8,10 @@ import Home from './AppTabNavigator/HomeTab';
 import TabBar from './TabBar';
 
 export default class Main extends Component {
+    constructor(props) {
+        super(props);
+    }
+    
     static navigationOptions = {
         headerStyle: {
             borderBottomWidth: 0,

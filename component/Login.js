@@ -15,23 +15,23 @@ export default class Login extends Component {
         }
     }
 
-    saveData = async() => {
-        const {email, password} = this.state;
+    saveData = async () => {
+        const { email, password } = this.state;
         const resetAction = StackActions.reset({
             index: 0,
-            actions: [NavigationActions.navigate({ routeName: 'Main' })],
-          });
+            actions: [NavigationActions.navigate({routeName: 'Main'})],
+        });
 
         let Details = {
             email: email,
             password: password
         }
- 
+
         AsyncStorage.setItem('Details', JSON.stringify(Details));
         Keyboard.dismiss();
         alert('1: ' + email + '2: ' + password);
 
-        this.props.navigation.dispath(resetAction);
+        this.props.navigation.dispatch(resetAction);
     }
 
     static navigationOptions = {
@@ -64,7 +64,7 @@ export default class Login extends Component {
                     {/* 밑에 줄 없애는거 찾기 */}
                     <Input containerStyle={{
                         width: 300,
-                        alignItems: 'center', 
+                        alignItems: 'center',
                         borderStyle: 'solid',
                         overflow: 'hidden',
                         marginBottom: 10,
@@ -74,21 +74,21 @@ export default class Login extends Component {
                         borderBottomWidth: 0.5,
                         borderColor: '#3c7bfe',
                     }}
-                    onChangeText={(email) => this.setState({email})}
-                    onSubmitEditing= {() => this.password.focus()}
-                    placeholder= '아이디' />
+                        onChangeText={(email) => this.setState({ email })}
+                        onSubmitEditing={() => this.password.focus()}
+                        placeholder='아이디' />
 
                     <Input containerStyle={{
                         width: 300,
-                        alignItems: 'center', 
+                        alignItems: 'center',
                         borderStyle: 'solid',
                         overflow: 'hidden',
                         marginTop: 10,
                         borderWidth: 0.5,
                         borderRadius: 25,
                         borderColor: '#3c7bfe',
-                        }}
-                        onChangeText={(password) => this.setState({password})}
+                    }}
+                        onChangeText={(password) => this.setState({ password })}
                         ref={(input) => this.password = input}
                         placeholder='비밀번호' secureTextEntry={true} />
                 </View>
@@ -98,15 +98,15 @@ export default class Login extends Component {
                         margin: 10,
                         alignItems: 'center',
                     }}
-                    onPress={this.saveData}
-                    title='로그인' type='solid' size={10} />
+                        onPress={this.saveData}
+                        title='로그인' type='solid' size={10} />
 
                     <Button containerStyle={{
                         margin: 10,
                         alignItems: 'center',
                     }}
-                    onPress={() => {navigation.navigate('Register')}}
-                    title='회원가입' type='solid' size={10} />
+                        onPress={() => { navigation.navigate('Register') }}
+                        title='회원가입' type='solid' size={10} />
                 </TouchableOpacity>
             </View>
         );
