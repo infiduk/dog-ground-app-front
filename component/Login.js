@@ -17,10 +17,10 @@ export default class Login extends Component {
 
     saveData = async () => {
         const { email, password } = this.state;
-        const resetAction = StackActions.reset({
-            index: 0,
-            actions: [NavigationActions.navigate({routeName: 'Main'})],
-        });
+        // const resetAction = StackActions.reset({
+        //     index: 0,
+        //     actions: [NavigationActions.navigate({routeName: 'routeTwo'})],
+        // });
 
         let Details = {
             email: email,
@@ -31,7 +31,8 @@ export default class Login extends Component {
         Keyboard.dismiss();
         alert('1: ' + email + '2: ' + password);
 
-        this.props.navigation.dispatch(resetAction);
+        // this.props.navigation.dispatch(resetAction);
+        this.props.navigation.navigate('routeTwo');
     }
 
     static navigationOptions = {

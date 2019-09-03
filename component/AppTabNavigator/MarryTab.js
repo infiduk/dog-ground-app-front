@@ -64,7 +64,17 @@ export default class MarryTab extends Component {
                         <View style={{backgroundColor:'blue',width: 50, height: 50}}></View>
                         <View style={{backgroundColor:'yellow',width: 50, height: 50}}></View>
                         <View style={{backgroundColor:'red',width: 50, height: 50}}></View>
-
+                    </ScrollView>
+                    <Text>asdfasfsdfasdfdsfasadf</Text>
+                    <ScrollView
+                        horizontal={true}>
+                        <Text>asfsfsdffff22</Text>
+                        <View style={{backgroundColor:'yellow',width: 50, height: 50}}></View>
+                        <View style={{backgroundColor:'pink',width: 50, height: 50}}></View>
+                        <View style={{backgroundColor:'yellow',width: 50, height: 50}}></View>
+                        <View style={{backgroundColor:'blue',width: 50, height: 50}}></View>
+                        <View style={{backgroundColor:'yellow',width: 50, height: 50}}></View>
+                        <View style={{backgroundColor:'red',width: 50, height: 50}}></View>
                     </ScrollView>
                 </ScrollView>
             </View>
