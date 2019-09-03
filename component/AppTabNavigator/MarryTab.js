@@ -8,8 +8,7 @@ export default class MarryTab extends Component {
         super(props);
 
         this.state = {
-            day: '',
-            month: '',
+            dateSelected: '',
         };
     }
 
@@ -40,13 +39,34 @@ export default class MarryTab extends Component {
     render() {
         return (
             <View style={style.container}>
-                <Calendar
-                    minDate={Date()} // alert(day.dateString);
-                    onDayPress={(day) => { this.setState({day}) }}
-                    onPressArrowLeft={substractMonth => substractMonth()}
-                    onPressArrowRight={addMonth => addMonth()}
-                />
-            <ScrollView></ScrollView>
+                <ScrollView>
+                    <Calendar
+                        minDate={Date()}
+                        onDayPress={(day) => {
+                            this.setState({
+                                dateSelected: { [day.dateString]: { selected: true, selectedColor: '#466A8F' } }
+                            }, () => {
+                                console.log(this.state.dateSelected)
+                            })
+                        }}
+                        onPressArrowLeft={substractMonth => substractMonth()}
+                        onPressArrowRight={addMonth => addMonth()}
+                        markedDates={this.state.dateSelected}
+                    />
+
+                    <Text>asdfasfsdfasdfdsfasadf</Text>
+                    <ScrollView
+                        horizontal={true}>
+                        <Text>asfsfsdffff22</Text>
+                        <View style={{backgroundColor:'yellow',width: 50, height: 50}}></View>
+                        <View style={{backgroundColor:'pink',width: 50, height: 50}}></View>
+                        <View style={{backgroundColor:'yellow',width: 50, height: 50}}></View>
+                        <View style={{backgroundColor:'blue',width: 50, height: 50}}></View>
+                        <View style={{backgroundColor:'yellow',width: 50, height: 50}}></View>
+                        <View style={{backgroundColor:'red',width: 50, height: 50}}></View>
+
+                    </ScrollView>
+                </ScrollView>
             </View>
         );
     }
