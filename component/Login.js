@@ -48,7 +48,8 @@ export default class Login extends Component {
             alignSelf: 'center',
             textAlign: 'center',
             flexGrow: 1,
-        }
+        },
+        tabBarOptions: { showLabel: false, visible: false, },
     }
 
     render() {

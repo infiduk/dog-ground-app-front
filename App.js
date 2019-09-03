@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { StyleSheet, Text, View } from 'react-native';
-import { createStackNavigator, createAppContainer, createBottomTabNavigator } from 'react-navigation';
+import { createStackNavigator, createAppContainer, createBottomTabNavigator, createDrawerNavigator } from 'react-navigation';
 
 import Main from './component/Main';
 import Login from './component/Login';
@@ -11,6 +11,21 @@ import Board from './component/AppTabNavigator/BoardTab';
 import BoardDetail from './component/AppTabNavigator/BoardTabDetail';
 import Propose from './component/AppTabNavigator/ProposeTab';
 import Profile from './component/AppTabNavigator/ProfileTab';
+
+// export default createDrawerNavigator({
+//   Main: {
+//     screen: Main,
+//     navigationOptions: {
+//       drawerLabel: 'Main',
+//     }
+//   },
+//   Login: {
+//     screen: Login,
+//     navigationOptions: {
+//       drawerLabel: 'Login',
+//     }
+//   }
+// });
 
 const AppStackNavigator = createStackNavigator({
   Main: { screen: Main, },
@@ -25,20 +40,20 @@ const AppStackNavigator = createStackNavigator({
 });
 
 const AppTabNavigator = createBottomTabNavigator({
-  MainTab: { screen: Main },
+  MainTab: { screen: Main, },
   MarryTab: { screen: Marry },
   BoardTab: { screen: Board },
   ProposeTab: { screen: Propose },
   AppStackNavigator: AppStackNavigator,
 });
 
-const AppStackContainer = createAppContainer(AppStackNavigator);
-// const AppTabContainer = createAppContainer(AppTabNavigator);
+// const AppStackContainer = createAppContainer(AppStackNavigator);
+const AppTabContainer = createAppContainer(AppTabNavigator);
 
 export default class App extends Component {
   render() {
     return (
-      <AppStackContainer />
+      <AppTabContainer />
     );
   }
 }

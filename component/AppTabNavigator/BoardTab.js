@@ -20,6 +20,23 @@ export default class BoardTab extends Component {
     }
 
     static navigationOptions = {
+        headerStyle: {
+            borderBottomWidth: 0,
+            shadowOpacity: 0,
+            shadowOffset: {
+                height: 0,
+            },
+            shadowRadius: 0,
+            elevation: 0,
+        },
+        headerTitleStyle: {
+            alignSelf: 'center',
+            textAlign: 'center',
+            flexGrow: 1,
+        },
+        headerLeft: (<Icon name={Platform.OS === 'ios' ? 'ios-menu' : 'md-menu'} style={{ paddingLeft: 10 }} />),
+        title: '이어줄개',
+        headerRight: (<Text style={{ color: '#fff' }}> </Text>),
         tabBarIcon: ({ tintColor }) => (
             <Icon name={Platform.OS === 'ios' ? 'ios-list' : 'md-list'} size={24} />
         ),

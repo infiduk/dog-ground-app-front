@@ -66,6 +66,7 @@ export default class Register extends Component {
             flexGrow: 1,
         },
         title: '회원가입',
+        tabBarOptions: { showLabel: false, visible: false, },
     }
 
     render() {

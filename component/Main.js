@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { StyleSheet, Platform, Text, View } from 'react-native';
+import { StyleSheet, Platform, Text, View, TouchableOpacity } from 'react-native';
 import { StackActions, NavigationActions } from 'react-navigation';
 import { Icon } from 'native-base';
 
@@ -27,14 +27,17 @@ export default class Main extends Component {
             textAlign: 'center',
             flexGrow: 1,
         },
-        headerLeft: (<Icon name={Platform.OS === 'ios' ? 'ios-menu' : 'md-menu'} style={{ paddingLeft: 10 }} />),
+        headerLeft: (<TouchableOpacity
+            onPress={() => navigation.openDrawer()}>
+                <Icon name={Platform.OS === 'ios' ? 'ios-menu' : 'md-menu'} style={{ paddingLeft: 10 }} />
+                </TouchableOpacity>),
         title: '이어줄개',
         headerRight: (<Text style={{ color: '#fff' }}> </Text>),
     }
 
     render() {
         return (
-            <TabBar />
+            <Home />
         );
     }
 }
