@@ -72,7 +72,7 @@ export default class HomeTab extends Component {
                     </TouchableOpacity>
                     <View style={styles.party}>
                         <View style={{ borderWidth: 2, borderColor: '#e1e1e1', flex: 1, marginTop: 30, marginLeft: 10, marginRight: 10, marginBottom: 15, }}>
-                            <Image style={{ width: 111, height: 85, marginTop: 53, alignSelf: 'center' }} source={require('../../assets/view_2_blur.jpg')}></Image>
+                            <Image style={{ width: 111, height: 85, marginTop: 53, alignSelf: 'center' }} source={require('../../assets/view_2.jpg')}></Image>
                         </View>
                         <View style={{ borderWidth: 2, borderColor: '#e1e1e1', backgroundColor: '#fff', height: 80, width: 80, borderRadius: 100 / 2, marginTop: 5, alignItems: 'center', alignSelf: 'center', position: 'absolute' }}>
                             <Image style={{ width: 50, height: 50, marginTop: 12, alignSelf: 'center' }} source={require('../../assets/main_2.jpg')}></Image>

@@ -47,7 +47,7 @@ export default class Register extends Component {
     }
 
     updateGender(gender) {
-        this.setState({gender: gender+1})
+        this.setState({ gender: gender })
     }
 
     static navigationOptions = {
@@ -81,8 +81,7 @@ export default class Register extends Component {
                     flexDirection: 'column',
                 }}>
                     <View style={styles.text}>
-                        {/* 이미지로 바꾸기 */}
-                        <Text> 이어줄개 회원가입 하세요~</Text>
+                        <Image style={{ width: 300, height: 100, marginTop: 25, marginBottom: 17, }} source={require('../assets/register.jpg')} />
                     </View>
                     <View style={styles.form}>
                         <Input containerStyle={{
@@ -102,13 +101,12 @@ export default class Register extends Component {
                             onSubmitEditing={() => this.password.focus()}
                             placeholder='아이디' />
 
-                        {/* 안내문구 */}
                         <Input containerStyle={{
                             width: 300,
                             alignItems: 'center',
                             borderStyle: 'solid',
                             overflow: 'hidden',
-                            marginBottom: 25,
+                            marginBottom: 8,
                             borderWidth: 0.5,
                             borderRadius: 25,
                             borderColor: '#3c7bfe',
@@ -117,12 +115,15 @@ export default class Register extends Component {
                             onSubmitEditing={() => this.password2.focus()}
                             ref={(input) => this.password = input}
                             placeholder='비밀번호' secureTextEntry={true} />
+                        
+                        <Image style={{ width: 272, height: 30 }} source={require('../assets/register_2.jpg')} />
 
                         <Input containerStyle={{
                             width: 300,
                             alignItems: 'center',
                             borderStyle: 'solid',
                             overflow: 'hidden',
+                            marginTop: 8,
                             marginBottom: 25,
                             borderWidth: 0.5,
                             borderRadius: 25,
@@ -181,7 +182,6 @@ export default class Register extends Component {
                             borderColor: '#3c7bfe',
                         }}
                             onChangeText={(breed) => this.setState({ breed })}
-                            //onSubmitEditing= {() => this.gender.focus()}
                             ref={(input) => this.breed = input}
                             placeholder='견종' />
 
@@ -189,7 +189,7 @@ export default class Register extends Component {
                             <Text style={{ fontSize: 20, marginRight: 10, alignSelf: 'center' }}>성별</Text>
                             <ButtonGroup
                                 onPress={this.updateGender}
-                                selectedIndex={gender-1}
+                                selectedIndex={gender}
                                 buttons={buttons}
                                 containerStyle={{ width: '80%', height: 50, marginBottom: 25 }}
                             />
@@ -211,7 +211,9 @@ export default class Register extends Component {
                             {/* 버튼 크기 조절 */}
                             <Button containerStyle={{
                                 margin: 10,
-                                alignItems: 'center',
+                                alignItems: 'stretch',
+                                paddingLeft: 30,
+                                paddingRight: 30,
                             }}
                                 onPress={this.saveData}
                                 title='확인' type='solid' size={10} />

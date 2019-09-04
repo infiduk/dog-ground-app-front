@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { View, Text, StyleSheet, Platform, FlatList, Alert, ScrollView, TouchableOpacity } from 'react-native';
+import { Input, Button, ButtonGroup } from 'react-native-elements';
 import { Icon } from 'native-base';
 
 import BoardItem from './BoardTabItem';
@@ -13,7 +14,7 @@ export default class BoardTab extends Component {
                 { no: '001', name: 'Munchkin', rdn: '19' },
                 { no: '002', name: 'Jjangchkin', rdn: '43' },
                 { no: '003', name: 'Munchking', rdn: '56' },
-                { no: '004', name: 'Munchkitty', rdn: '11' },
+                { no: '004', name: 'Munchkitty아아아아앙아아아아이슨ㅁ으른ㅇ름니아라ㅣ낭아아아아ㅏ', rdn: '11' },
             ],
             isLoading: false,
         };
@@ -81,6 +82,7 @@ export default class BoardTab extends Component {
                     refreshing={this.state.isLoading}
                     onRefresh={this._getBoardDatas}
                 />
+
             </View>
         );
     }

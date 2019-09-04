@@ -8,6 +8,7 @@ import Login from './component/Login';
 import Register from './component/Register';
 
 import Marry from './component/AppTabNavigator/MarryTab';
+import MarryDetail from './component/AppTabNavigator/MarryTabDetail';
 import Board from './component/AppTabNavigator/BoardTab';
 import BoardDetail from './component/AppTabNavigator/BoardTabDetail';
 import Propose from './component/AppTabNavigator/ProposeTab';
@@ -31,6 +32,7 @@ export const DrawStack = createDrawerNavigator({
 const MainStack = createStackNavigator({
   Main: { screen: Main, },
   Marry: { screen: Marry, },
+  MarryDetail: { screen: MarryDetail, },
   Board: { screen: Board, },
   BoardDetail: { screen: BoardDetail, },
   Propose: { screen: Propose, },
@@ -38,6 +40,7 @@ const MainStack = createStackNavigator({
 
 const MarryStack = createStackNavigator({
   Marry: { screen: Marry, },
+  MarryDetail: { screen: MarryDetail, },
   DrawStack: { screen: DrawStack, },
 });
 
@@ -58,6 +61,7 @@ const AppStackNavigator = createStackNavigator({
   Login: { screen: Login, },
   Register: { screen: Register, },
   Marry: { screen: Marry, },
+  MarryDetail: { screen: MarryDetail, },
   Board: { screen: Board, },
   BoardDetail: { screen: BoardDetail, },
   Propose: { screen: Propose, },

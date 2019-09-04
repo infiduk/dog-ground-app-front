@@ -4,8 +4,6 @@ import { NavigationActions, StackActions } from 'react-navigation';
 import { Input, Button } from 'react-native-elements';
 import { Icon } from 'native-base';
 
-import MainImage from '../assets/image.jpg';
-
 export default class Login extends Component {
     constructor(props) {
         super(props);
@@ -60,7 +58,7 @@ export default class Login extends Component {
             <View style={styles.container}>
                 <View style={styles.image}>
                     {/* 이미지 바꾸기 */}
-                    <Image style={{ width: 200, height: 300, }} source={MainImage} />
+                    <Image style={{ width: 300, height: 400, }} source={require('../assets/loginLogo.jpg')} />
                 </View>
                 <View style={styles.idPw}>
                     {/* 밑에 줄 없애는거 찾기 */}
@@ -105,7 +103,7 @@ export default class Login extends Component {
                         }} onPress={this.saveData} title='로그인' type='solid' size={10} />
                     </TouchableOpacity>
                     <TouchableOpacity>
-                        <Text style={{ fontSize: 18, color: '#2d5ff4', marginTop: 2, textAlign: 'right', paddingRight: 50, }} onPress={() => { navigation.navigate('Register') }}>회원가입</Text>
+                        <Text style={{ fontSize: 18, color: '#2d5ff4', marginTop: 25, textAlign: 'center', }} onPress={() => { navigation.navigate('Register') }}>아직 회원이 아니신가요?</Text>
                     </TouchableOpacity>
                 </View>
             </View>
@@ -121,18 +119,18 @@ const styles = StyleSheet.create({
     },
     image: {
         flex: 1,
-        backgroundColor: '#fff',
+        backgroundColor: '#f7f7f7',
         alignItems: 'center',
         justifyContent: 'center',
     },
     idPw: {
         flex: 0.7,
-        backgroundColor: '#fff',
+        backgroundColor: '#f7f7f7',
         alignItems: 'center',
         justifyContent: 'center',
     },
     login: {
         flex: 0.8,
-        backgroundColor: '#fff',
+        backgroundColor: '#f7f7f7',
     },
 });
