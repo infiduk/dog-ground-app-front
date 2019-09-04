@@ -9,40 +9,87 @@ export default class Register extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            email: '',
-            password: '',
-            password2: '',
+            id: '',
+            pw: '',
+            pw2: '',
             name: '',
             city: '',
-            breed: '',
+            species: '',
             gender: '',
-            date: '',
+            birthday: '',
+            duplicateCheck:'',
         }
         this.updateGender = this.updateGender.bind(this)
     }
 
     saveData = async () => {
-        const { email, password, password2, name, city, breed, gender, date } = this.state;
-
-        let Details = {
-            email: email,
-            password: password,
-            password2: password2,
-            name: name,
-            city: city,
-            breed: breed,
-            gender: gender,
-            date: date,
+        const { id, pw, pw2, name, city, species, gender, birthday, duplicateCheck } = this.state;
+        var DetailsID = {
+            id: id
+        }
+        
+        var DetailseName = {
+            name: name
         }
 
-        if (password != password2) {
-            alert('비밀번호 확인점');
-        } else {
-            AsyncStorage.setItem('Details', JSON.stringify(Details));
-            Keyboard.dismiss();
-            alert('1: ' + email + '2: ' + password + '3: ' + name + '4: ' + city + '5: ' + breed + '6: ' + gender + '7: ' + date);
-
-            // this.props.navigation.goBack();
+        var Details = {
+            id: id,
+            pw: pw,
+            pw2: pw2,
+            name: name,
+            city: city,
+            species: species,
+            gender: gender,
+            birthday: birthday
+        }
+        
+        try{
+            if (pw != pw2) {
+                alert('비밀번호 확인해주세요.');
+            } else {
+                const checkId = await fetch('http://ch-4ml.iptime.org:3000/user/id/',{
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify(DetailsID)
+                }).then((response) => response.json())
+                .then((responseJson) => {
+                    return responseJson;
+                })
+                console.log(checkId)
+                if (checkId["result"] === true){
+                    const checkName = await fetch('http://ch-4ml.iptime.org:3000/user/name/',{
+                    method: 'POST',
+                    headers: {
+                        Accept: 'application/json',
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify(DetailseName)
+                    }).then((response) => response.json())
+                    .then((responseJson) => {
+                        return responseJson;
+                    })
+                    Details.name = checkName["name"]
+                    const response = await fetch('http://ch-4ml.iptime.org:3000/user/',{
+                    method: 'POST',
+                    headers: {
+                        Accept: 'application/json',
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify(Details)
+                    }).then((response) => response.json())
+                    .then((responseJson) => {
+                        return responseJson;
+                    })
+                    alert("회원가입이 정상적으로 진행되었습니다.")
+                    this.props.navigation.goBack();
+                } else {
+                    console.log("아이디가 중복이다냥 ! 안된다냥!!")
+                }
+            }
+        } catch (error){
+            console.error('saveData',error)
         }
     }
 
@@ -97,8 +144,8 @@ export default class Register extends Component {
                             borderColor: '#3c7bfe',
                         }}
                             underlineColorAndroid='transparent'
-                            onChangeText={(email) => this.setState({ email })}
-                            onSubmitEditing={() => this.password.focus()}
+                            onChangeText={(id) => this.setState({ id })}
+                            onSubmitEditing={() => this.pw.focus()}
                             placeholder='아이디' />
 
                         <Input containerStyle={{
@@ -111,9 +158,9 @@ export default class Register extends Component {
                             borderRadius: 25,
                             borderColor: '#3c7bfe',
                         }}
-                            onChangeText={(password) => this.setState({ password })}
-                            onSubmitEditing={() => this.password2.focus()}
-                            ref={(input) => this.password = input}
+                            onChangeText={(pw) => this.setState({ pw })}
+                            onSubmitEditing={() => this.pw2.focus()}
+                            ref={(input) => this.pw = input}
                             placeholder='비밀번호' secureTextEntry={true} />
                         
                         <Image style={{ width: 272, height: 30 }} source={require('../assets/register_2.jpg')} />
@@ -129,9 +176,9 @@ export default class Register extends Component {
                             borderRadius: 25,
                             borderColor: '#3c7bfe',
                         }}
-                            onChangeText={(password2) => this.setState({ password2 })}
+                            onChangeText={(pw2) => this.setState({ pw2 })}
                             onSubmitEditing={() => this.name.focus()}
-                            ref={(input) => this.password2 = input}
+                            ref={(input) => this.pw2 = input}
                             placeholder='비밀번호확인' secureTextEntry={true} />
 
                         <Input containerStyle={{
@@ -181,8 +228,8 @@ export default class Register extends Component {
                             borderBottomWidth: 0.5,
                             borderColor: '#3c7bfe',
                         }}
-                            onChangeText={(breed) => this.setState({ breed })}
-                            ref={(input) => this.breed = input}
+                            onChangeText={(species) => this.setState({ species })}
+                            ref={(input) => this.species = input}
                             placeholder='견종' />
 
                         <View style={{ flexDirection: 'row', alignItems: 'center' }}>
@@ -199,8 +246,8 @@ export default class Register extends Component {
                             <DatePicker
                                 customStyles={{ marginBottom: 25 }}
                                 placeholder='생년월일을 선택'
-                                date={this.state.date}
-                                onDateChange={date => this.setState({ date })}
+                                date={this.state.birthday}
+                                onDateChange={birthday => this.setState({ birthday })}
                                 format='YYYY-MM-DD'
                                 mode='date'
                                 confirmBtnText='확인'

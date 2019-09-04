@@ -8,29 +8,51 @@ export default class Login extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            email: '',
-            password: '',
+            id: '',
+            pw: '',
         }
     }
 
-    saveData = async () => {
-        const { email, password } = this.state;
-        // const resetAction = StackActions.reset({
-        //     index: 0,
-        //     actions: [NavigationActions.navigate({routeName: 'routeTwo'})],
-        // });
+    // 로그인
+    saveData = async() => {
+        const {id, pw} = this.state;
 
-        let Details = {
-            email: email,
-            password: password
+        var Details = {
+            id: id,
+            pw: pw
         }
-
-        AsyncStorage.setItem('Details', JSON.stringify(Details));
-        Keyboard.dismiss();
-        alert('1: ' + email + '2: ' + password);
-
-        // this.props.navigation.dispatch(resetAction);
-        this.props.navigation.navigate('routeTwo');
+        console.log(Details)
+        try{
+            const response = await fetch('http://ch-4ml.iptime.org:3000/login/',{
+                method: 'POST',
+                headers: {
+                    Accept: 'application/json',
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(Details)
+            }).then((response) => response.json())
+            .then((responseJson)=>{
+                return responseJson;
+            })
+            if (response["result"]==true){
+                const resetAction = StackActions.reset({
+                    index: 0,
+                    actions: [NavigationActions.navigate({routeName: 'Main'})],
+                });
+                this.props.navigation.dispatch(resetAction);
+            } else {
+                // 여기에서 작업 처리 (fetch로 전송 또 보내고 if 문으로 처리
+                AsyncStorage.setItem('Details', JSON.stringify(Details));
+                Keyboard.dismiss();
+                alert('1: ' + id + '2: ' + pw);
+                this.props.navigation.navigate('routeTwo');
+            }
+            // console.log(response)
+            // console.log(Details)
+            // console.log(JSON.stringify(Details))
+        } catch (error) {
+            console.error('saveData',error)
+        }
     }
 
     static navigationOptions = {
@@ -74,8 +96,8 @@ export default class Login extends Component {
                         borderBottomWidth: 0.5,
                         borderColor: '#3c7bfe',
                     }}
-                        onChangeText={(email) => this.setState({ email })}
-                        onSubmitEditing={() => this.password.focus()}
+                        onChangeText={(id) => this.setState({ id })}
+                        onSubmitEditing={() => this.pw.focus()}
                         placeholder='아이디' />
 
                     <Input containerStyle={{
@@ -88,8 +110,8 @@ export default class Login extends Component {
                         borderRadius: 25,
                         borderColor: '#3c7bfe',
                     }}
-                        onChangeText={(password) => this.setState({ password })}
-                        ref={(input) => this.password = input}
+                        onChangeText={(pw) => this.setState({ pw })}
+                        ref={(input) => this.pw = input}
                         placeholder='비밀번호' secureTextEntry={true} />
                 </View>
                 <View style={styles.login}>

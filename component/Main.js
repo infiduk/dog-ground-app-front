@@ -33,9 +33,9 @@ export default class Main extends Component {
         headerRight: (<Text style={{ color: '#fff' }}> </Text>),
     }
         
-render() {
-    return (
-        <Home />
-    );
-}
+    render() {
+        return (
+            <Home navigation={this.props.navigation}/>
+        );
+    }
 }
