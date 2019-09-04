@@ -14,6 +14,7 @@ import BoardDetail from './component/AppTabNavigator/BoardTabDetail';
 import Propose from './component/AppTabNavigator/ProposeTab';
 import ProposeDetail from './component/AppTabNavigator/ProposeTabItem';
 import Profile from './component/AppTabNavigator/ProfileTab';
+import Party from './component/AppTabNavigator/PartyTab';
 
 const MainStack = createStackNavigator({
   Login: Login,
@@ -22,6 +23,7 @@ const MainStack = createStackNavigator({
 
 const HomeStack = createStackNavigator({
   Home: Home,
+  Party: Party,
 });
 
 const MarryStack = createStackNavigator({
@@ -88,14 +90,14 @@ const AppTabNavigator = createBottomTabNavigator({
 });
 
 const AppDrawerNavigator = createDrawerNavigator({
-  AppTabNavigator: {
+  Home: {
     screen: AppTabNavigator,
   },
-  Profile: {
+  '내 정보': {
     screen: Profile,
   },
 }, {
-  initialRouteName: 'AppTabNavigator'
+  initialRouteName: 'Home'
 });
 
 const SwitchNavigation = createSwitchNavigator({

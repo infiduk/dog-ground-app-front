@@ -10,16 +10,18 @@ export default class Login extends Component {
         this.state = {
             id: '',
             pw: '',
+            index: '',
         }
     }
 
     // 로그인
     saveData = async() => {
-        const {id, pw} = this.state;
+        const {id, pw, index} = this.state;
 
         var Details = {
             id: id,
-            pw: pw
+            pw: pw,
+            index: index
         }
         console.log(Details)
         try{
@@ -39,10 +41,17 @@ export default class Login extends Component {
                     index: 0,
                     actions: [NavigationActions.navigate({routeName: 'Main'})],
                 });
+                console.log(response)
+                console.log(response["index"])
+                AsyncStorage.setItem('Details', JSON.stringify(Details));
+                AsyncStorage.setItem('ForSession', JSON.stringify(response["index"]));
+                AsyncStorage.getItem('ForSession', (err,result)=>{
+                    console.log(result)
+                });
                 this.props.navigation.dispatch(resetAction);
             } else {
                 // 여기에서 작업 처리 (fetch로 전송 또 보내고 if 문으로 처리
-                AsyncStorage.setItem('Details', JSON.stringify(Details));
+                
                 Keyboard.dismiss();
                 alert('1: ' + id + '2: ' + pw);
                 this.props.navigation.navigate('routeTwo');
