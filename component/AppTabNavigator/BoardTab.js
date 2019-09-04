@@ -40,7 +40,7 @@ export default class BoardTab extends Component {
         headerRight: (<Text style={{ color: '#fff' }}> </Text>),
     }
 
-    _getBoardDatas = async(limit) => {
+    _getBoardDatas = async (limit) => {
         this.setState({
             isLoading: true,
         });
@@ -50,18 +50,18 @@ export default class BoardTab extends Component {
         });
     }
 
-    _renderItem = ({item}) => {
-        const {no, name, rdn} = item;
+    _renderItem = ({ item }) => {
+        const { no, name, rdn } = item;
         return (
             <TouchableOpacity
-                onPress={() => this.props.navigation.navigate('BoardDetail', {title: name})}
-                style={{ width: '100%', alignItems: 'stretch',}}
+                onPress={() => this.props.navigation.navigate('BoardDetail', { title: name })}
+                style={{ width: '100%', alignItems: 'stretch', }}
             >
-            <BoardItem
-                no={no}
-                name={name}
-                rdn={rdn}
-            />
+                <BoardItem
+                    no={no}
+                    name={name}
+                    rdn={rdn}
+                />
             </TouchableOpacity>
         );
     }
@@ -74,7 +74,7 @@ export default class BoardTab extends Component {
         return (
             <View style={styles.container}>
                 <FlatList
-                    style={{backgroundColor: '#fff'}}
+                    style={{ backgroundColor: '#fff' }}
                     contentContainerStyle={this.props.contentContainer}
                     data={this.state.boardItems}
                     keyExtractor={(item) => item.name}
@@ -82,8 +82,16 @@ export default class BoardTab extends Component {
                     refreshing={this.state.isLoading}
                     onRefresh={this._getBoardDatas}
                 />
-
-            </View>
+                <TouchableOpacity>
+                    <Button containerStyle={{
+                        marginTop: 30,
+                        marginBottom: 20,
+                        alignItems: 'stretch',
+                        paddingLeft: 30,
+                        paddingRight: 30,
+                    }} onPress={this.saveData} title='글 작성하기' type='solid' size={10} />
+                </TouchableOpacity>
+            </View >
         );
     }
 }

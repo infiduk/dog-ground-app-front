@@ -25,8 +25,8 @@ export default class Main extends Component {
             textAlign: 'center',
             flexGrow: 1,
         },
-        headerLeft: (<TouchableOpacity
-            onPress={() => this.props.navigation.navigate('DrawStack')}>
+        headerLeft: (<TouchableOpacity>
+            {/* onPress={() => this.props.navigation.navigate('DrawStack')}> */}
             <Icon name={Platform.OS === 'ios' ? 'ios-menu' : 'md-menu'} style={{ paddingLeft: 10 }} />
         </TouchableOpacity>),
         title: '이어줄개',

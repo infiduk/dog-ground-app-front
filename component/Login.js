@@ -119,18 +119,18 @@ const styles = StyleSheet.create({
     },
     image: {
         flex: 1,
-        backgroundColor: '#f7f7f7',
+        backgroundColor: '#fff',
         alignItems: 'center',
         justifyContent: 'center',
     },
     idPw: {
         flex: 0.7,
-        backgroundColor: '#f7f7f7',
+        backgroundColor: '#fff',
         alignItems: 'center',
         justifyContent: 'center',
     },
     login: {
         flex: 0.8,
-        backgroundColor: '#f7f7f7',
+        backgroundColor: '#fff',
     },
 });

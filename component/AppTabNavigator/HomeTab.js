@@ -62,7 +62,7 @@ export default class HomeTab extends Component {
                     <Text style={{ padding: 2, backgroundColor: '#e1e1e1', marginTop: 10, alignSelf: 'stretch', paddingLeft: 10, paddingRight: 10}}>공지사항말머리 결혼까지 단 10일!</Text>
                 </View>
                 <View style={{ flex: 1, flexDirection: 'row', marginTop: 5 }}>
-                    <TouchableOpacity style={styles.marry} onPress={() => { this.props.navigation.navigate('Marry') }}>
+                    <TouchableOpacity style={styles.marry} onPress={() => { this.props.navigation.navigate('MarryTab') }}>
                         <View style={{ borderWidth: 2, borderColor: '#e1e1e1', flex: 1, marginTop: 30, marginLeft: 10, marginRight: 10, marginBottom: 15, }}>
                             <Image style={{ width: 116, height: 76, marginTop: 57, alignSelf: 'center' }} source={require('../../assets/view_1.jpg')}></Image>
                         </View>

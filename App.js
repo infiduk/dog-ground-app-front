@@ -14,53 +14,43 @@ import BoardDetail from './component/AppTabNavigator/BoardTabDetail';
 import Propose from './component/AppTabNavigator/ProposeTab';
 import Profile from './component/AppTabNavigator/ProfileTab';
 
-export const DrawStack = createDrawerNavigator({
-  Main: {
-    screen: Main,
-    navigationOptions: {
-      drawerLabel: 'Main',
-    },
-  },
-  Login: {
-    screen: Login,
-    navigationOptions: {
-      drawerLabel: 'Login',
-    }
-  }
-});
+// const DrawStack = createDrawerNavigator({
+//   Main: { screen: AppTabNavigator, },
+//   Drawer: { screen: Profile, },
+// });
 
 const MainStack = createStackNavigator({
   Main: { screen: Main, },
-  Marry: { screen: Marry, },
-  MarryDetail: { screen: MarryDetail, },
-  Board: { screen: Board, },
-  BoardDetail: { screen: BoardDetail, },
-  Propose: { screen: Propose, },
+  // Marry: { screen: Marry, },
+  // MarryDetail: { screen: MarryDetail, },
+  // Board: { screen: Board, },
+  // BoardDetail: { screen: BoardDetail, },
+  // Propose: { screen: Propose, },
 });
 
 const MarryStack = createStackNavigator({
   Marry: { screen: Marry, },
   MarryDetail: { screen: MarryDetail, },
-  DrawStack: { screen: DrawStack, },
+  // DrawStack: { screen: DrawStack, },
 });
 
 const BoardStack = createStackNavigator({
   Board: { screen: Board, },
   BoardDetail: { screen: BoardDetail, },
-  DrawStack: { screen: DrawStack, },
+  // DrawStack: { screen: DrawStack, },
 });
 
 const ProposeStack = createStackNavigator({
   Propose: { screen: Propose, },
   BoardDetail: { screen: BoardDetail, },
-  DrawStack: { screen: DrawStack, },
+  // DrawStack: { screen: DrawStack, },
 });
 
 const AppStackNavigator = createStackNavigator({
   Main: { screen: Main, },
   Login: { screen: Login, },
   Register: { screen: Register, },
-  Marry: { screen: Marry, },
+  // Marry: { screen: Marry, },
   MarryDetail: { screen: MarryDetail, },
   Board: { screen: Board, },
   BoardDetail: { screen: BoardDetail, },
