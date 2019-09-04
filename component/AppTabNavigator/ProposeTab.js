@@ -9,11 +9,16 @@ export default class ProposeTab extends Component {
         super(props);
 
         this.state = {
+            name: '',
+            title: '',
+            content: '',
+            sender_name: '',
+
             proposeItems: [
-                { no: '001', name: '패키지', rdn: '강남' },
-                { no: '002', name: '12323', rdn: '서초' },
-                { no: '003', name: '패키지3', rdn: '5잉6' },
-                { no: '004', name: '패키지5', rdn: '한ㅁ' },
+                { name: '001', title: '패키지', content: '강남', sender_name: '나단ㄹ' },
+                { name: '002', title: '12323', content: '서초', sender_name: '나ㅇ단' },
+                { name: '003', title: '패키지3', content: '5잉6', sender_name: '나단' },
+                { name: '004', title: '패키지5', content: '한ㅁ', sender_name: '나단ㅁ' },
             ],
             isLoading: false,
         };
@@ -53,7 +58,7 @@ export default class ProposeTab extends Component {
         const {no, name, rdn} = item;
         return (
             <TouchableOpacity
-                onPress={() => {this.props.navigation.navigate('BoardDetail', {title: name})}}
+                onPress={() => {this.props.navigation.navigate('ProposeDetail', {title: name})}}
             >
             <ProposeItem
                 no={no}

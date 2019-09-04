@@ -11,7 +11,9 @@ import Marry from './component/AppTabNavigator/MarryTab';
 import MarryDetail from './component/AppTabNavigator/MarryTabDetail';
 import Board from './component/AppTabNavigator/BoardTab';
 import BoardDetail from './component/AppTabNavigator/BoardTabDetail';
+import BoardNew from './component/AppTabNavigator/BoardTabNew';
 import Propose from './component/AppTabNavigator/ProposeTab';
+import ProposeDetail from './component/AppTabNavigator/ProposeTabItem';
 import Profile from './component/AppTabNavigator/ProfileTab';
 
 // const DrawStack = createDrawerNavigator({
@@ -37,12 +39,13 @@ const MarryStack = createStackNavigator({
 const BoardStack = createStackNavigator({
   Board: { screen: Board, },
   BoardDetail: { screen: BoardDetail, },
+  BoardNew: { screen: BoardNew, },
   // DrawStack: { screen: DrawStack, },
 });
 
 const ProposeStack = createStackNavigator({
   Propose: { screen: Propose, },
-  BoardDetail: { screen: BoardDetail, },
+  ProposeDetail: { screen: ProposeDetail, },
   // DrawStack: { screen: DrawStack, },
 });
 

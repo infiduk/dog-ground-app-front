@@ -89,7 +89,7 @@ export default class BoardTab extends Component {
                         alignItems: 'stretch',
                         paddingLeft: 30,
                         paddingRight: 30,
-                    }} onPress={this.saveData} title='글 작성하기' type='solid' size={10} />
+                    }} onPress={()=>{this.props.navigation.navigate('BoardNew')}} title='글 작성하기' type='solid' size={10} />
                 </TouchableOpacity>
             </View >
         );
