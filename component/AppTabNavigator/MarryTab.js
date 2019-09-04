@@ -38,7 +38,7 @@ export default class MarryTab extends Component {
     saveData = async () => {
         const { marryDay, marryTime, hall_title, hall_cost, dress_title, dress_cost, makeup_title, makeup_cost, studio_title, studio_cost, total_cost } = this.state;
 
-        this.setState({total_cost: (hall_cost + dress_cost + makeup_cost + studio_cost)});
+        this.setState({total_cost: (Number(hall_cost) + Number(dress_cost) + Number(makeup_cost) + Number(studio_cost))});
 
         let Detail = {
             marryDay: marryDay,
@@ -66,19 +66,19 @@ export default class MarryTab extends Component {
         const marryJSON = JSON.stringify(Detail);
         Keyboard.dismiss();
         // this.props.navigation.navigate('MarryDetail', { marryJSON: marryJSON })
-        this.props.navigation.navigate('MarryDetail', { marryDate: (marryDay + " " + marryTime), hall_title: hall_title, hall_cost: hall_cost, dress_title: dress_title, dress_cost: dress_cost, makeup_title: makeup_title, makeup_cost: makeup_cost, studio_title: studio_title, studio_cost: studio_cost});
+        this.props.navigation.navigate('MarryDetail', { marryDate: (marryDay + " " + marryTime), hall_title: hall_title, hall_cost: hall_cost, dress_title: dress_title, dress_cost: dress_cost, makeup_title: makeup_title, makeup_cost: makeup_cost, studio_title: studio_title, studio_cost: studio_cost, total_cost: total_cost});
     }
 
     updateTime(time) {
         switch (time) {
             case 0:
-                this.setState({ marryTime: '11:00', time: time });
+                this.setState({ marryTime: '11:00:00', time: time });
                 break;
             case 1:
-                this.setState({ marryTime: '13:00', time: time });
+                this.setState({ marryTime: '13:00:00', time: time });
                 break;
             case 2:
-                this.setState({ marryTime: '15:00', time: time });
+                this.setState({ marryTime: '15:00:00', time: time });
                 break;
             default:
                 break;

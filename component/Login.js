@@ -58,7 +58,7 @@ export default class Login extends Component {
             <View style={styles.container}>
                 <View style={styles.image}>
                     {/* 이미지 바꾸기 */}
-                    <Image style={{ width: 300, height: 400, }} source={require('../assets/loginLogo.jpg')} />
+                    <Image style={{ width: 292, height: 430, }} source={require('../assets/loginLogo.jpg')} />
                 </View>
                 <View style={styles.idPw}>
                     {/* 밑에 줄 없애는거 찾기 */}
