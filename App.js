@@ -18,7 +18,7 @@ export const DrawStack = createDrawerNavigator({
     screen: Main,
     navigationOptions: {
       drawerLabel: 'Main',
-    }
+    },
   },
   Login: {
     screen: Login,
@@ -30,28 +30,11 @@ export const DrawStack = createDrawerNavigator({
 
 const MainStack = createStackNavigator({
   Main: { screen: Main, },
-  DrawStack: { screen: DrawStack, 
-    headerStyle: {
-                borderBottomWidth: 0,
-                shadowOpacity: 0,
-                shadowOffset: {
-                    height: 0,
-                },
-                shadowRadius: 0,
-                elevation: 0,
-            },
-            headerTitleStyle: {
-                alignSelf: 'center',
-                textAlign: 'center',
-                flexGrow: 1,
-            },
-            headerLeft: (<TouchableOpacity
-                onPress={() => navigation.navigate('DrawerOpen')}>
-                <Icon name={Platform.OS === 'ios' ? 'ios-menu' : 'md-menu'} style={{ paddingLeft: 10 }} />
-            </TouchableOpacity>),
-            title: '이어줄개',
-            headerRight: (<Text style={{ color: '#fff' }}> </Text>),
-}});
+  Marry: { screen: Marry, },
+  Board: { screen: Board, },
+  BoardDetail: { screen: BoardDetail, },
+  Propose: { screen: Propose, },
+});
 
 const MarryStack = createStackNavigator({
   Marry: { screen: Marry, },
@@ -66,6 +49,7 @@ const BoardStack = createStackNavigator({
 
 const ProposeStack = createStackNavigator({
   Propose: { screen: Propose, },
+  BoardDetail: { screen: BoardDetail, },
   DrawStack: { screen: DrawStack, },
 });
 
@@ -77,23 +61,61 @@ const AppStackNavigator = createStackNavigator({
   Board: { screen: Board, },
   BoardDetail: { screen: BoardDetail, },
   Propose: { screen: Propose, },
-}, { 
-  initialRouteName: 'Login',
-});
+}, {
+    initialRouteName: 'Login',
+  });
 
 const AppTabNavigator = createBottomTabNavigator({
-  MainTab: { screen: MainStack, },
-  MarryTab: { screen: MarryStack },
-  BoardTab: { screen: BoardStack },
-  ProposeTab: { screen: ProposeStack },
+  MainTab: {
+    screen: MainStack,
+    navigationOptions: {
+      tabBarOptions: {
+        showLabel: false,
+      },
+      tabBarIcon: ({ tintColor }) => (
+        <Icon name={Platform.OS === 'ios' ? 'ios-home' : 'md-home'} size={24} />
+      ),
+    }
+  },
+  MarryTab: {
+    screen: MarryStack,
+    navigationOptions: {
+      tabBarOptions: {
+        showLabel: false,
+      },
+      tabBarIcon: ({ tintColor }) => (
+        <Icon name={Platform.OS === 'ios' ? 'ios-heart' : 'md-heart'} size={24} />
+      ),
+    },
+  },
+  BoardTab: { screen: BoardStack,
+    navigationOptions: {
+      tabBarOptions: {
+        showLabel: false,
+      },
+      tabBarIcon: ({ tintColor }) => (
+        <Icon name={Platform.OS === 'ios' ? 'ios-list' : 'md-list'} size={24} />
+      ),
+    },
+  },
+  ProposeTab: { screen: ProposeStack,
+    navigationOptions: {
+      tabBarOptions: {
+        showLabel: false,
+      },
+      tabBarIcon: ({ tintColor }) => (
+        <Icon name={Platform.OS === 'ios' ? 'ios-chatboxes' : 'md-chatboxes'} size={24}/>
+      ),
+    },
+  },
 });
 
 const SwitchNavigation = createSwitchNavigator({
   routeOne: { screen: AppStackNavigator, },
-  routeTwo: { screen: AppTabNavigator, },
+  routeTwo: { screen: AppTabNavigator },
 }, {
-  initialRouteName: 'routeOne',
-});
+    initialRouteName: 'routeOne',
+  });
 
 const AppTabContainer = createAppContainer(SwitchNavigation);
 

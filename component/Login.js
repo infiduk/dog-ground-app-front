@@ -94,22 +94,20 @@ export default class Login extends Component {
                         ref={(input) => this.password = input}
                         placeholder='비밀번호' secureTextEntry={true} />
                 </View>
-                <TouchableOpacity style={styles.login}>
+                <View style={styles.login}>
                     {/* 버튼 크기 조절 */}
-                    <Button containerStyle={{
-                        margin: 10,
-                        alignItems: 'center',
-                    }}
-                        onPress={this.saveData}
-                        title='로그인' type='solid' size={10} />
-
-                    <Button containerStyle={{
-                        margin: 10,
-                        alignItems: 'center',
-                    }}
-                        onPress={() => { navigation.navigate('Register') }}
-                        title='회원가입' type='solid' size={10} />
-                </TouchableOpacity>
+                    <TouchableOpacity>
+                        <Button containerStyle={{
+                            margin: 10,
+                            alignItems: 'stretch',
+                            paddingLeft: 30,
+                            paddingRight: 30,
+                        }} onPress={this.saveData} title='로그인' type='solid' size={10} />
+                    </TouchableOpacity>
+                    <TouchableOpacity>
+                        <Text style={{ fontSize: 18, color: '#2d5ff4', marginTop: 2, textAlign: 'right', paddingRight: 50, }} onPress={() => { navigation.navigate('Register') }}>회원가입</Text>
+                    </TouchableOpacity>
+                </View>
             </View>
         );
     }
@@ -119,6 +117,7 @@ const styles = StyleSheet.create({
     container: {
         flex: 1,
         flexDirection: 'column',
+        marginTop: 50,
     },
     image: {
         flex: 1,

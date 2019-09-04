@@ -37,10 +37,6 @@ export default class ProposeTab extends Component {
         headerLeft: (<Icon name={Platform.OS === 'ios' ? 'ios-menu' : 'md-menu'} style={{ paddingLeft: 10 }} />),
         title: '이어줄개',
         headerRight: (<Text style={{ color: '#fff' }}> </Text>),
-        tabBarIcon: ({ tintColor }) => (
-            <Icon name={Platform.OS === 'ios' ? 'ios-chatboxes' : 'md-chatboxes'} size={24}/>
-        ),
-        tabBarOptions: {showLabel: false},
     }
 
     _getProposeDatas = async(limit) => {

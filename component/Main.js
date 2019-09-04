@@ -10,38 +10,32 @@ export default class Main extends Component {
         super(props);
     }
 
-    static navigationOptions = ({ navigation }) => {
-        return {
-            headerStyle: {
-                borderBottomWidth: 0,
-                shadowOpacity: 0,
-                shadowOffset: {
-                    height: 0,
-                },
-                shadowRadius: 0,
-                elevation: 0,
+    static navigationOptions = {
+        headerStyle: {
+            borderBottomWidth: 0,
+            shadowOpacity: 0,
+            shadowOffset: {
+                height: 0,
             },
-            headerTitleStyle: {
-                alignSelf: 'center',
-                textAlign: 'center',
-                flexGrow: 1,
-            },
-            headerLeft: (<TouchableOpacity
-                onPress={() => navigation.navigate('DrawerOpen')}>
-                <Icon name={Platform.OS === 'ios' ? 'ios-menu' : 'md-menu'} style={{ paddingLeft: 10 }} />
-            </TouchableOpacity>),
-            title: '이어줄개',
-            headerRight: (<Text style={{ color: '#fff' }}> </Text>),
-            tabBarIcon: ({ tintColor }) => (
-                <Icon name={Platform.OS === 'ios' ? 'ios-home' : 'md-home'} size={24} />
-            ),
-            tabBarOptions: { showLabel: false },
-        }
+            shadowRadius: 0,
+            elevation: 0,
+        },
+        headerTitleStyle: {
+            alignSelf: 'center',
+            textAlign: 'center',
+            flexGrow: 1,
+        },
+        headerLeft: (<TouchableOpacity
+            onPress={() => this.props.navigation.navigate('DrawStack')}>
+            <Icon name={Platform.OS === 'ios' ? 'ios-menu' : 'md-menu'} style={{ paddingLeft: 10 }} />
+        </TouchableOpacity>),
+        title: '이어줄개',
+        headerRight: (<Text style={{ color: '#fff' }}> </Text>),
     }
-
-    render() {
-        return (
-            <Home />
-        );
-    }
+        
+render() {
+    return (
+        <Home />
+    );
+}
 }
