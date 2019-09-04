@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import { StyleSheet, Text, View, TouchableOpacity, Platform } from 'react-native';
+import { Icon } from 'native-base';
 import { createStackNavigator, createAppContainer, createBottomTabNavigator, createDrawerNavigator, createSwitchNavigator } from 'react-navigation';
 
 import Main from './component/Main';
@@ -29,8 +30,28 @@ export const DrawStack = createDrawerNavigator({
 
 const MainStack = createStackNavigator({
   Main: { screen: Main, },
-  DrawStack: { screen: DrawStack, },
-});
+  DrawStack: { screen: DrawStack, 
+    headerStyle: {
+                borderBottomWidth: 0,
+                shadowOpacity: 0,
+                shadowOffset: {
+                    height: 0,
+                },
+                shadowRadius: 0,
+                elevation: 0,
+            },
+            headerTitleStyle: {
+                alignSelf: 'center',
+                textAlign: 'center',
+                flexGrow: 1,
+            },
+            headerLeft: (<TouchableOpacity
+                onPress={() => navigation.navigate('DrawerOpen')}>
+                <Icon name={Platform.OS === 'ios' ? 'ios-menu' : 'md-menu'} style={{ paddingLeft: 10 }} />
+            </TouchableOpacity>),
+            title: '이어줄개',
+            headerRight: (<Text style={{ color: '#fff' }}> </Text>),
+}});
 
 const MarryStack = createStackNavigator({
   Marry: { screen: Marry, },

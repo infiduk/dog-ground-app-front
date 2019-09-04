@@ -3,13 +3,9 @@ import { View, Text, StyleSheet, Platform, Image, Dimensions } from 'react-nativ
 import { Icon } from 'native-base';
 import Carousel, { Pagination } from 'react-native-banner-carousel';
 
-import Banner_1 from '../../assets/banner1.jpg';
-import Banner_2 from '../../assets/banner2.jpg';
-import Banner_3 from '../../assets/banner3.jpg';
-
 const BannerWidth = Dimensions.get('window').width;
 
-const image = ['../../assets/banner1.jpg', Banner_2, Banner_3];
+const images = [require('../../assets/banner1.jpg'), require('../../assets/banner2.jpg'), require('../../assets/banner3.jpg')];
 
 export default class HomeTab extends Component {
     static navigationOptions = ({ navigation }) => {
@@ -41,7 +37,7 @@ export default class HomeTab extends Component {
     renderPage(image, index) {
         return (
             <View key={index}>
-                <Image style={{ width: BannerWidth, height: 260 }} source={{ uri: image }} />
+                <Image style={{ width: BannerWidth, height: 260 }} source={image} />
             </View>
         );
     }
@@ -57,26 +53,43 @@ export default class HomeTab extends Component {
                         index={0}
                         pageSize={BannerWidth}
                     >
-                        {image.map((image, index) => this.renderPage(image, index))}
+                        {images.map((image, index) => this.renderPage(image, index))}
                     </Carousel>
                 </View>
                 <View style={styles.notice}>
-                    <Text style={{ padding: 2, backgroundColor: '#e1e1e1', }}>공지사항말머리 결혼까지 단 10일!</Text>
+                    <Text style={{ padding: 2, backgroundColor: '#e1e1e1', marginTop: 5 }}>공지사항말머리 결혼까지 단 10일!</Text>
                 </View>
-                <View style={styles.marry}>
-                    <View style={{ borderWidth: 2, borderColor: '#e1e1e1', flex: 1, marginTop: 35, marginLeft: 10, marginRight: 10, }}>
-                        <Text style={{ justifyContent: 'center', }}>이어줄개</Text>
+                <View style={{ flex: 1, flexDirection: 'row', marginTop: 10 }}>
+                    <View style={styles.marry}>
+                        <View style={{ borderWidth: 2, borderColor: '#e1e1e1', flex: 1, marginTop: 30, marginLeft: 10, marginRight: 10, marginBottom: 15, }}>
+                            <Image style={{ width: 116, height: 76, marginTop: 50, alignSelf: 'center' }} source={require('../../assets/view_1.jpg')}></Image>
+                        </View>
+                        <View style={{ borderWidth: 2, borderColor: '#e1e1e1', backgroundColor: '#fff', height: 80, width: 80, borderRadius: 100 / 2, marginTop: 5, alignItems: 'center', alignSelf: 'center', position: 'absolute' }}>
+                            <Image style={{ width: 50, height: 50, marginTop: 12, alignSelf: 'center' }} source={require('../../assets/main_1.jpg')}></Image>
+
+                        </View>
                     </View>
-                    <View style={{ borderWidth: 2, borderColor: '#e1e1e1', backgroundColor: '#fff', height: 80, width: 80, borderRadius: 100 / 2, marginTop: 10, alignItems: 'center', alignSelf: 'center', position: 'absolute' }}></View>
+                    <View style={styles.party}>
+                        <View style={{ borderWidth: 2, borderColor: '#e1e1e1', flex: 1, marginTop: 30, marginLeft: 10, marginRight: 10, marginBottom: 15, }}></View>
+                        <View style={{ borderWidth: 2, borderColor: '#e1e1e1', backgroundColor: '#fff', height: 80, width: 80, borderRadius: 100 / 2, marginTop: 5, alignItems: 'center', alignSelf: 'center', position: 'absolute' }}></View>
+                    </View>
                 </View>
+                {/* <View style={styles.marry}>
+                    <View style={{ borderWidth: 2, borderColor: '#e1e1e1', flex: 1, marginTop: 35, marginLeft: 10, marginRight: 10, }}>
+                    <Image style={{width: 144, height: 94, marginTop: 50, alignSelf: 'center'}} source={require('../../assets/view_1.jpg')}></Image>
+                    </View>
+                    <View style={{ borderWidth: 2, borderColor: '#e1e1e1', backgroundColor: '#fff', height: 80, width: 80, borderRadius: 100 / 2, marginTop: 10, alignItems: 'center', alignSelf: 'center', position: 'absolute' }}>
+                        <Image style={{width: 50, height: 50, marginTop: 12, alignSelf: 'center'}} source={require('../../assets/main_1.jpg')}></Image>
+                    </View>
+                </View> */}
                 <View style={{ flex: 1, flexDirection: 'row', }}>
                     <View style={styles.board}>
-                        <View style={{ borderWidth: 2, borderColor: '#e1e1e1', flex: 1, marginTop: 30, marginLeft: 10, marginRight: 10, marginBottom: 15, }}></View>
-                        <View style={{ borderWidth: 2, borderColor: '#e1e1e1', backgroundColor: '#fff', height: 80, width: 80, borderRadius: 100 / 2, marginTop: 5, alignItems: 'center', alignSelf: 'center', position: 'absolute' }}></View>
+                        <View style={{ borderWidth: 2, borderColor: '#e1e1e1', flex: 1, marginTop: 25, marginLeft: 10, marginRight: 10, marginBottom: 15, }}></View>
+                        <View style={{ borderWidth: 2, borderColor: '#e1e1e1', backgroundColor: '#fff', height: 80, width: 80, borderRadius: 100 / 2, alignItems: 'center', alignSelf: 'center', position: 'absolute' }}></View>
                     </View>
                     <View style={styles.propose}>
-                        <View style={{ borderWidth: 2, borderColor: '#e1e1e1', flex: 1, marginTop: 30, marginLeft: 10, marginRight: 10, marginBottom: 15, }}></View>
-                        <View style={{ borderWidth: 2, borderColor: '#e1e1e1', backgroundColor: '#fff', height: 80, width: 80, borderRadius: 100 / 2, marginTop: 5, alignItems: 'center', alignSelf: 'center', position: 'absolute' }}></View>
+                        <View style={{ borderWidth: 2, borderColor: '#e1e1e1', flex: 1, marginTop: 25, marginLeft: 10, marginRight: 10, marginBottom: 15, }}></View>
+                        <View style={{ borderWidth: 2, borderColor: '#e1e1e1', backgroundColor: '#fff', height: 80, width: 80, borderRadius: 100 / 2, alignItems: 'center', alignSelf: 'center', position: 'absolute' }}></View>
                     </View>
                 </View>
             </View>
@@ -105,6 +118,10 @@ const styles = StyleSheet.create({
     marry: {
         flex: 1,
         backgroundColor: '#fff'
+    },
+    party: {
+        flex: 1,
+        backgroundColor: '#fff',
     },
     board: {
         flex: 1,

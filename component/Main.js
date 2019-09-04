@@ -32,6 +32,10 @@ export default class Main extends Component {
             </TouchableOpacity>),
             title: '이어줄개',
             headerRight: (<Text style={{ color: '#fff' }}> </Text>),
+            tabBarIcon: ({ tintColor }) => (
+                <Icon name={Platform.OS === 'ios' ? 'ios-home' : 'md-home'} size={24} />
+            ),
+            tabBarOptions: { showLabel: false },
         }
     }
 

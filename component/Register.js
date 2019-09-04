@@ -47,7 +47,7 @@ export default class Register extends Component {
     }
 
     updateGender(gender) {
-        this.setState({ gender })
+        this.setState({gender: gender+1})
     }
 
     static navigationOptions = {
@@ -70,7 +70,7 @@ export default class Register extends Component {
     }
 
     render() {
-        const buttons = ['남', '여']
+        const buttons = ['남자', '여자', '중성화남자', '중성화여자']
         const { gender } = this.state
         const { navigation } = this.props;
 
@@ -189,9 +189,9 @@ export default class Register extends Component {
                             <Text style={{ fontSize: 20, marginRight: 10, alignSelf: 'center' }}>성별</Text>
                             <ButtonGroup
                                 onPress={this.updateGender}
-                                selectedIndex={gender}
+                                selectedIndex={gender-1}
                                 buttons={buttons}
-                                containerStyle={{ width: '60%', height: 50, marginBottom: 25 }}
+                                containerStyle={{ width: '80%', height: 50, marginBottom: 25 }}
                             />
                         </View>
                         <View style={{ flexDirection: 'row', alignItems: 'center' }}>
