@@ -104,7 +104,7 @@ export default class Login extends Component {
                         borderTopWidth: 0.5,
                         borderBottomWidth: 0.5,
                         borderColor: '#3c7bfe',
-                    }}
+                    }} autoCorrect={false}
                         onChangeText={(id) => this.setState({ id })}
                         onSubmitEditing={() => this.pw.focus()}
                         placeholder='아이디' />
@@ -118,7 +118,7 @@ export default class Login extends Component {
                         borderWidth: 0.5,
                         borderRadius: 25,
                         borderColor: '#3c7bfe',
-                    }}
+                    }} autoCorrect={false}
                         onChangeText={(pw) => this.setState({ pw })}
                         ref={(input) => this.pw = input}
                         placeholder='비밀번호' secureTextEntry={true} />
